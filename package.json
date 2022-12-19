@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-papercut-health-monitoring",
+  "name": "n8n-nodes-papercut-health-api",
   "version": "0.1.0",
   "description": "",
   "keywords": [
@@ -32,10 +32,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/PaperCutHealthMonitoringApi.credentials.js"
+      "dist/credentials/PaperCutHealthApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/PaperCutHealthMonitoringApi/PaperCutHealthMonitoringApi.node.js"
+      "dist/nodes/PaperCutHealthApi/PaperCutHealthApi.node.js"
     ]
   },
   "devDependencies": {
