@@ -19,18 +19,18 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 ## Operations
 
 ### Information
-	- Base System
-	- Devices
-	- Job Ticketing
-	- Mobility Print
-	- Print Providers
-	- Printers
-	- Site Servers
-	- Web Print
+ - Base System
+ - Devices
+ - Job Ticketing
+ - Mobility Print
+ - Print Providers
+ - Printers
+ - Site Servers
+ - Web Print
 
 ### Devices & Printers
-	- Recent Jobs
-	- Status
+ - Recent Jobs
+ - Status
 
 ### Statistics
  - Held Jobs Count
@@ -39,17 +39,17 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
  - Recent Warnings Count
 
 ### Status
-	- Application Server
-	- Database Server
-	- Devices
-	- Job Ticketing 
-	- License
-	- Mobility Print Servers
-	- Primary Health Check
-	- Print Providers
-	- Printers
-	- Site Servers
-	- Web Print Servers
+ - Application Server
+ - Database Server
+ - Devices
+ - Job Ticketing 
+ - License
+ - Mobility Print Servers
+ - Primary Health Check
+ - Print Providers
+ - Printers
+ - Site Servers
+ - Web Print Servers
 
 ## Credentials
 
