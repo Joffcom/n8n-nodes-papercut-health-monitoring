@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow';
+import { ignoreFalseError } from '../ResponseHelper';
 
 export const statusOperations: INodeProperties[] = [
 	{
@@ -21,7 +22,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/application-server/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -33,7 +36,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/database/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -45,7 +50,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/devices/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -57,7 +64,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/job-ticketing/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -69,7 +78,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/license/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -81,7 +92,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/mobility-print-servers/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -93,7 +106,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -105,7 +120,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/print-providers/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -117,7 +134,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/printers/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -129,7 +148,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/site-servers/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 			{
@@ -141,7 +162,9 @@ export const statusOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '/api/health/web-print/status',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 		],

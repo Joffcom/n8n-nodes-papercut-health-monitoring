@@ -1,4 +1,5 @@
 import { INodeProperties } from 'n8n-workflow';
+import { ignoreFalseError } from '../ResponseHelper';
 
 export const devicesAndPrintersOperations: INodeProperties[] = [
 	{
@@ -33,7 +34,9 @@ export const devicesAndPrintersOperations: INodeProperties[] = [
 					request: {
 						method: 'GET',
 						url: '={{"/api/health/" + $parameter.type + "/" + $parameter.deviceOrPrinterId + "/status"}}',
+						ignoreHttpStatusErrors: true,
 					},
+					output: { postReceive: [ignoreFalseError] },
 				},
 			},
 		],
