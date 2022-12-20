@@ -43,6 +43,7 @@ export class PaperCutHealthApi implements ICredentialType {
 		request: {
 			baseURL: '={{$credentials?.domain}}',
 			url: '/api/health',
+			skipSslCertificateValidation: '={{$credentials?.selfSigned}}',
 		},
 	};
 }

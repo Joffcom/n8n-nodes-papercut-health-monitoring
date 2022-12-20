@@ -32,12 +32,9 @@ export class PaperCutHealthApi implements INodeType {
 		],
 		// Defaults
 		requestDefaults: {
-			baseURL: 'https://demo.papercut.com',
-			url: '',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
+			baseURL: '={{$credentials.domain.replace(new RegExp("/$"), "")}}',
+			skipSslCertificateValidation: '={{$credentials.selfSigned}}',
+			headers: {},
 		},
 		// Properties
 		properties: [
@@ -68,7 +65,6 @@ export class PaperCutHealthApi implements INodeType {
 				],
 				default: 'status'
 			},
-
 			...devicesAndPrintersOperations,
 			...devicesAndPrintersFields,
 			...informationOperations,
