@@ -1,10 +1,12 @@
 {
   "name": "n8n-nodes-papercut-health-api",
   "version": "0.1.0",
-  "description": "",
+  "description": "n8n node for working with the PaperCut MF / NG health monitoring api",
   "keywords": [
     "n8n-community-node-package",
-    "papercut",
+    "papercut mf",
+    "papercut ng",
+    "health monitoring",
     "print management"
   ],
   "license": "MIT",

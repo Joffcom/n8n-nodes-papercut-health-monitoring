@@ -78,7 +78,7 @@ export const devicesAndPrintersFields: INodeProperties[] = [
 			},
 		},
 		default: 1001,
-		description: 'The ID of the device or printer'
+		description: 'The ID of the device or printer',
 	},
 	{
 		displayName: 'Minutes',

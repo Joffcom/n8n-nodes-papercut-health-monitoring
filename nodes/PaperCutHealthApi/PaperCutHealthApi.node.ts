@@ -4,10 +4,10 @@ import {
 	devicesAndPrintersFields,
 	devicesAndPrintersOperations,
 	informationOperations,
-	statusFields,
-	statusOperations,
 	statisticsFields,
 	statisticsOperations,
+	statusFields,
+	statusOperations,
 } from './descriptions';
 
 export class PaperCutHealthApi implements INodeType {
@@ -63,7 +63,7 @@ export class PaperCutHealthApi implements INodeType {
 						value: 'status',
 					},
 				],
-				default: 'status'
+				default: 'status',
 			},
 			...devicesAndPrintersOperations,
 			...devicesAndPrintersFields,
