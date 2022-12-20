@@ -1,6 +1,6 @@
 # n8n-nodes-papercut-health-monitoring
 
-PaperCut MF / PaperCut NG is a print managemnt platform for Linux, Mac and Windows. This community node allows you to work with the health monitoring api in your n8n worklfows.
+PaperCut MF / PaperCut NG is a print management platform for Linux, Mac and Windows. This community node allows you to work with the health monitoring api in your n8n worklfows.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
