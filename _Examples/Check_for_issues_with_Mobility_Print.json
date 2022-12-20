@@ -1,0 +1,124 @@
+{
+  "name": "Check for issues with Mobility Print",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "id": "6b8e394b-fbde-4744-a4b0-44761074ff18",
+      "name": "Every 5 minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        420,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "mobilityPrintServers"
+      },
+      "id": "915aeb2f-3ef5-4b83-ba6f-0f7683ba1051",
+      "name": "Check Mobility Print Status",
+      "type": "n8n-nodes-papercut-health-api.paperCutHealthApi",
+      "typeVersion": 1,
+      "position": [
+        620,
+        340
+      ],
+      "credentials": {
+        "paperCutHealthApi": {
+          "id": "1",
+          "name": "demo.papercut.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"status\"] }}",
+              "operation": "notEqual",
+              "value2": "OK"
+            }
+          ]
+        }
+      },
+      "id": "52a27b0e-945f-4411-a251-8fa3b325e128",
+      "name": "If not OK",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        820,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "channel": "#alerts",
+        "text": "There is currently an issue with Mobility Print",
+        "otherOptions": {},
+        "attachments": []
+      },
+      "id": "48a19a86-5821-4ee1-8888-63d44fab74ae",
+      "name": "Send a slack message",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        320
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Every 5 minutes": {
+      "main": [
+        [
+          {
+            "node": "Check Mobility Print Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Mobility Print Status": {
+      "main": [
+        [
+          {
+            "node": "If not OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If not OK": {
+      "main": [
+        [
+          {
+            "node": "Send a slack message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "00cc296c-1ea6-43ff-92b0-8df646c7d0b6",
+  "id": 1,
+  "meta": {
+    "instanceId": "ad00c6462a3c561f7bda1d4ce2503d80deb5003e3b88bd23f315d0adec750ab7"
+  },
+  "tags": []
+}

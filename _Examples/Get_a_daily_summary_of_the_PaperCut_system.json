@@ -1,0 +1,92 @@
+{
+  "name": "Get a daily summary of the PaperCut system",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "6b8e394b-fbde-4744-a4b0-44761074ff18",
+      "name": "Every Morning at 8am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        420,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "information"
+      },
+      "id": "915aeb2f-3ef5-4b83-ba6f-0f7683ba1051",
+      "name": "Get system info",
+      "type": "n8n-nodes-papercut-health-api.paperCutHealthApi",
+      "typeVersion": 1,
+      "position": [
+        620,
+        340
+      ],
+      "credentials": {
+        "paperCutHealthApi": {
+          "id": "1",
+          "name": "demo.papercut.com"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "channel": "#alerts",
+        "text": "=Daily PaperCut Summary\n\nAvailable Disk Space: {{ $json[\"applicationServer\"][\"systemMetrics\"][\"diskSpaceFreeMB\"] }} / {{ $json[\"applicationServer\"][\"systemMetrics\"][\"diskSpaceTotalMB\"] }}\n\nTotal Devices:  {{ $json[\"devices\"][\"count\"] }}\nDevices with Errors:  {{ $json[\"devices\"][\"inErrorCount\"] }}\n\nTotal Printers:  {{ $json[\"printers\"][\"count\"] }}\nPrinters with Errors:  {{ $json[\"printers\"][\"inErrorCount\"] }}",
+        "otherOptions": {},
+        "attachments": []
+      },
+      "id": "48a19a86-5821-4ee1-8888-63d44fab74ae",
+      "name": "Send a summary message to Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [
+        820,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Every Morning at 8am": {
+      "main": [
+        [
+          {
+            "node": "Get system info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get system info": {
+      "main": [
+        [
+          {
+            "node": "Send a summary message to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "c86b2e75-cacf-427f-9c21-6cff8106d9e7",
+  "id": 1,
+  "meta": {
+    "instanceId": "ad00c6462a3c561f7bda1d4ce2503d80deb5003e3b88bd23f315d0adec750ab7"
+  },
+  "tags": []
+}

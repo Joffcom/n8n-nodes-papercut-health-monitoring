@@ -1,8 +1,6 @@
 # n8n-nodes-papercut-health-monitoring
 
-This is an n8n community node. It lets you use the PaperCut NG / PaperCut MF health monitoring API in your n8n workflows.
-
-PaperCut MF / PaperCut NG is a print managemnt platform for Linux, Mac and Windows.
+PaperCut MF / PaperCut NG is a print managemnt platform for Linux, Mac and Windows. This community node allows you to work with the health monitoring api in your n8n worklfows.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
@@ -20,29 +18,70 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-_List the operations supported by your node._
+### Information
+	- Base System
+	- Devices
+	- Job Ticketing
+	- Mobility Print
+	- Print Providers
+	- Printers
+	- Site Servers
+	- Web Print
+
+### Devices & Printers
+	- Recent Jobs
+	- Status
+
+### Statistics
+ - Held Jobs Count
+ - Recent Errors Count
+ - Recent Pages Count
+ - Recent Warnings Count
+
+### Status
+	- Application Server
+	- Database Server
+	- Devices
+	- Job Ticketing 
+	- License
+	- Mobility Print Servers
+	- Primary Health Check
+	- Print Providers
+	- Printers
+	- Site Servers
+	- Web Print Servers
 
 ## Credentials
 
-_If users need to authenticate with the app/service, provide details here. You should include prerequisites (such as signing up with the service), available authentication methods, and how to set them up._
+### Domain
+The domain is the hostname / ip / FQDN of your PaperCut server including protocol and port, As an example if you use `http://10.10.0.1:9191` to access your PaperCut server this would be the value you enter here.
+
+### Token
+The token can be found in the PaperCut admin console under Options > Advanced > System Health Monitoring.
+
+You can also find this under Options > Config Editor by searching for `health.api.key`
+
+### Self Signed Certificate
+If you are using a self signed certificate or if you don't know enable this option.
 
 ## Compatibility
 
-_State the minimum n8n version, as well as which versions you test against. You can also include any known version incompatibility issues._
+This node has been tested using n8n 0.208.0 and PaperCut MF 22.0.4, Although this node will work with any currently supported PaperCut version (20.0.0 or later).
 
 ## Usage
 
-_This is an optional section. Use it to help users with any difficult or confusing aspects of the node._
+There are 2 example workflows in the `_Examples` folder in the GitHub repository.
 
-_By the time users are looking for community nodes, they probably already know n8n basics. But if you expect new users, you can link to the [Try it out](https://docs.n8n.io/try-it-out/) documentation to help them get started._
+### Get a daily summary of the PaperCut system
+Get information on disk space usage, printers and device counts and a count of printers and devices with errors every morning in a Slack channel.
+
+### Check for issues with Mobility Print
+Check every 5 minutes for any errors with Mobility Print Servers and send them to a Slack channel.
 
 ## Resources
 
 * [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
-* _Link to app/service documentation._
 
 ## Version history
 
-_This is another optional section. If your node has multiple versions, include a short description of available versions and what changed, as well as any compatibility impact._
-
-
+0.1.0 - Initial Release

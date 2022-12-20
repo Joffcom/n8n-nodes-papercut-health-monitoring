@@ -47,20 +47,24 @@ export class PaperCutHealthApi implements INodeType {
 					{
 						name: 'Information',
 						value: 'information',
+						description: 'View information about the different components',
 					},
 					{
 						// eslint-disable-next-line n8n-nodes-base/node-param-resource-with-plural-option
 						name: 'Devices & Printers',
 						value: 'devicesAndPrinters',
+						description: 'Check the status or job count for a device or printer',
 					},
 					{
 						// eslint-disable-next-line n8n-nodes-base/node-param-resource-with-plural-option
 						name: 'Statistics',
 						value: 'statistics',
+						description: 'View stats on errors, warning and held jobs',
 					},
 					{
 						name: 'Status',
 						value: 'status',
+						description: 'Check the status of different components',
 					},
 				],
 				default: 'status',
